@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from re import L
+from telnetlib import LOGOUT
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'faculty.apps.FacultyConfig'
+    'faculty.apps.FacultyConfig',
+    'user.apps.UserConfig',
+    'bootstrap4',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +86,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -122,3 +126,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL="user.User"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGIN_URL="login"
+LOGIN_REDIRECT_URL="profile"
+LOGOUT_REDIRECT_URL="login"

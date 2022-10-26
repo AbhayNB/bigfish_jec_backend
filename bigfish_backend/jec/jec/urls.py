@@ -18,5 +18,9 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('faculty/', include('faculty.urls'))
+    path('faculty/', include('faculty.urls')),
+    path('user/', include('user.urls'))
+
 ]
+
+admin.site.site_header="JABALPUR ENGINEERING COLLEGE"
